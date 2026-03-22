@@ -10,7 +10,8 @@ def get_parquet_metadata(file_paths:list ) -> dict:
     data_dict = {
         "file_name": [],
         "file_size": [],
-        "total_records": []
+        "total_records": [],
+        "actions" : []
     }
 
     for path in file_paths:
@@ -25,8 +26,14 @@ def get_parquet_metadata(file_paths:list ) -> dict:
 
             # 3. Get total records from Parquet metadata (very fast)
             parquet_file = pq.ParquetFile(path)
-            data_dict["total_records"].append(parquet_file.metadata.num_rows)
+            data_dict["total_records"].append(f"{parquet_file.metadata.num_rows:,}")
+            data_dict["actions"].append(":material/feature_search:")
         else:
             logger.error(f"Path not found {path}")
 
     return data_dict
+
+
+if __name__ == '__main__':
+    parquet_file = pq.ParquetFile("../data/yellow_tripdata_2025-01.parquet")
+    a = 10

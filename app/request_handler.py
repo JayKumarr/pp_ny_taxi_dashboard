@@ -35,7 +35,7 @@ def prepare_data_link_dic(href_list: list) -> dict:
     dict__ = defaultdict(list)
     for htag_ in href_list:
         href = htag_.get('href')
-        dict__[htag_.text].append( href)
+        dict__[htag_.text].append(href.strip())
 
     return dict__
 
@@ -94,3 +94,4 @@ def download_parquet(url, save_path=DATA_DIR_) ->  bool:
 if __name__ == '__main__':
     links_ = extract_parquet_data_links()
     a = 10
+

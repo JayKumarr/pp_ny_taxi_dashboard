@@ -2,11 +2,15 @@
 
 _THE PORJECT IS STILL UNDER DEVELOPMENT_
 
+DOCKER ENVIRONMENT
+
+[![My Skills](https://skillicons.dev/icons?i=docker,parquet,git,python)](https://skillicons.dev)
+
 For this portfolio project, we use:
 
 - **Parquet:** raw and staged storage
 
-- **Dask:** ETL and parallel transforms. Parallel ingest, schema cleanup, feature engineering, partitioned stage writes, and aggregate preparation.
+- **Apache Spark/ Pyspark:** ETL and parallel transforms. Parallel ingest, schema cleanup, feature engineering, partitioned stage writes, and aggregate preparation.
 
 - **PyIceberg:** curated local table layer. Curated fact and aggregate tables, snapshot history, partition-aware table management.
 
