@@ -4,8 +4,9 @@ _THE PORJECT IS STILL UNDER DEVELOPMENT_
 
 DOCKER ENVIRONMENT
 
-[![My Skills](https://skillicons.dev/icons?i=docker,parquet,git,python)](https://skillicons.dev)
-
+[![My Skills](https://skillicons.dev/icons?i=docker,git,python)](https://skillicons.dev)
+[](https://estuary.dev/static/0601076aec5cf18dee9c4d0b9f890acf/ebeae/Image_1_79bf0b6705.png)
+[](https://iceberg.apache.org/assets/images/Iceberg-logo.svg)
 For this portfolio project, we use:
 
 - **Parquet:** raw and staged storage
