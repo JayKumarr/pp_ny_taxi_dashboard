@@ -5,8 +5,11 @@ _THE PORJECT IS STILL UNDER DEVELOPMENT_
 DOCKER ENVIRONMENT
 
 [![My Skills](https://skillicons.dev/icons?i=docker,git,python)](https://skillicons.dev)
-![parquet](https://estuary.dev/static/0601076aec5cf18dee9c4d0b9f890acf/ebeae/Image_1_79bf0b6705.png){width=20, height=10}
-![iceberg](https://iceberg.apache.org/assets/images/Iceberg-logo.svg){width=20, height=10}
+
+<img src="https://estuary.dev/static/0601076aec5cf18dee9c4d0b9f890acf/ebeae/Image_1_79bf0b6705.png" width="150">
+
+<img src="https://iceberg.apache.org/assets/images/Iceberg-logo.svg" width="150">
+
 For this portfolio project, we use:
 
 - **Parquet:** raw and staged storage

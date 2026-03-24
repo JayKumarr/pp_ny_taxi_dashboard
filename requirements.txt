@@ -1,6 +1,7 @@
-streamlit==1.55.0
 python-dotenv==1.2.2
 requests==2.32.5
 beautifulsoup4==4.14.3
 pyarrow==23.0.1
 pyspark==4.1.1
+streamlit==1.55.0
+streamlit-option-menu

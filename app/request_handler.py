@@ -9,7 +9,6 @@ from collections import defaultdict
 
 from nytaxi_logger import get_logger
 
-
 logger = get_logger(__name__)
 
 # Get the absolute path of the current file

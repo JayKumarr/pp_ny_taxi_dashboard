@@ -1,10 +1,8 @@
 import streamlit as st
 import os
 
-from helper import get_parquet_metadata
-from request_handler import download_parquet, get_downloaded_files, extract_parquet_data_links
-
-from streamlit_option_menu import option_menu
+from helper import get_parquet_metadata, logger
+from request_handler import extract_parquet_data_links, get_downloaded_files, download_parquet
 
 st.set_page_config(page_title="Download Dataset", page_icon=":material/database:")
 
@@ -59,9 +57,24 @@ with right_col:
                     if success_:
                         downloaded_ = get_parquet_metadata(get_downloaded_files())
                         dataset_table.table(downloaded_)
+                except Exception as e:
+                    logger.error(f"Failed: {e}")
                 finally:
                     st.session_state.processing = False
                     st.rerun()
 
+@st.dialog("Cast your vote")
+def vote(item):
+    st.write(f"Why is {item} your favorite?")
+    reason = st.text_input("Because...")
+    if st.button("Submit"):
+        st.session_state.vote = {"item": item, "reason": reason}
+        st.rerun()
 
+if "vote" not in st.session_state:
+    st.write("Vote for your favorite")
+    if st.button(str("A")):
+        vote("A")
+    if st.button("B"):
+        vote("B")
 

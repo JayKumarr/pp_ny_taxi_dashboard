@@ -1,4 +1,4 @@
-FROM apache/spark-py:v3.4.0
+FROM python:3-slim
 
 # Switch to root to install requirements and set permissions
 USER root
@@ -6,7 +6,7 @@ USER root
 WORKDIR /taxi_dash_dir
 
 # copy over requirements
-COPY requirements.txt ./requirements.txt
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 
@@ -16,4 +16,3 @@ COPY . .
 EXPOSE 8501
 
 CMD streamlit run app/main_page_ui.py
-

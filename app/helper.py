@@ -36,4 +36,5 @@ def get_parquet_metadata(file_paths:list ) -> dict:
 
 if __name__ == '__main__':
     parquet_file = pq.ParquetFile("../data/yellow_tripdata_2025-01.parquet")
+
     a = 10
