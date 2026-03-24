@@ -14,7 +14,7 @@ logger = get_logger(__name__)
 # Get the absolute path of the current file
 current_file = Path(__file__).resolve().parent
 # to store data, metadata
-DATA_DIR_ = Path.joinpath(current_file.parent, "data")
+DATA_DIR_ = Path.joinpath(current_file, "data")
 
 # This file has all links of parquest file data
 LINKS_JSON_FILE = Path.joinpath(DATA_DIR_, "all_links.json")

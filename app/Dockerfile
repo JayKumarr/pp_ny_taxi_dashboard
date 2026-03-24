@@ -10,9 +10,6 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 
-# Copy everything (this includes the 'app' folder)
 COPY . .
 
-EXPOSE 8501
-
-CMD streamlit run app/main_page_ui.py
+CMD streamlit run main_page_ui.py
