@@ -1,4 +1,4 @@
-FROM python:3-slim
+FROM python:3.10-slim
 
 # Switch to root to install requirements and set permissions
 USER root
