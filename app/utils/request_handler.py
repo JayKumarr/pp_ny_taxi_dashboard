@@ -6,24 +6,22 @@ from pathlib import Path
 import json
 from datetime import date, datetime
 from collections import defaultdict
-
 from .nytaxi_logger import get_logger
+
+
+NY_TAXI_ENDPOINT =  "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page"
 
 logger = get_logger(__name__)
 
-# to store data, metadata
 DATA_DIR_ = Path(os.getenv("DATA_DIR_PATH"))
-
 DATA_DIR_.mkdir(parents=True, exist_ok=True) # create path if not exist
-
 file_list_as_strings = [str(p) for p in DATA_DIR_.iterdir() if p.is_file()]
-
 logger.info(f"DATA_DIR_ [{DATA_DIR_.absolute()}] \t {file_list_as_strings}")
 
 # This file has all links of parquest file data
 LINKS_JSON_FILE = DATA_DIR_.joinpath("all_links.json")
 
-NY_TAXI_ENDPOINT =  "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page"
+
 def get_all_parquet_files() -> list:
     response = requests.get(NY_TAXI_ENDPOINT)
 
