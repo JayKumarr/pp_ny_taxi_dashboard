@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 import logging
 
-log_file = "/logs/sparkm_verbose.log"
+log_file = "logs/sparkm_verbose.log"
 
 def get_logger(name: str) -> logging.Logger:
     logger = logging.getLogger(name)

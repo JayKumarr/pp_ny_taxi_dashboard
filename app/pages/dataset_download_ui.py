@@ -81,13 +81,12 @@ if "vote" not in st.session_state:
 if st.button("Process Parquet File"):
     import requests
     with st.spinner("Communicating with Spark"):
-        response = requests.post(
-            "http://api:8000/process_parquet",
-            json={"path": "/data/yellow_tripdata_2024-01.parquet"}
+        response = requests.get(
+            "http://restapi:8000/run-job"
         )
 
         result = response.json()
-        st.write("Exit code:", result["returncode"])
+        st.write("Exit code:", result)
 
         # st.subheader("STDOUT")
         # st.code(result["stdout"])

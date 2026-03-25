@@ -1,39 +1,39 @@
 version: "3.9"
 
 services:
-#  spark-master:
-#    image: apache/spark:3.5.0
-#    container_name: spark-master
-#    command: >
-#      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master"
-#    ports:
-#      - "8080:8080"   # Spark UI
-#      - "7077:7077"   # Spark master port
-#    networks:
-#      - spark-net
-#    volumes:
-#      - /home/jay/pp_ny_taxi_dashboard/data:/opt/spark/data
-#      - /home/jay/pp_ny_taxi_dashboard/spark/jobs:/opt/spark/jobs
-#      - /home/jay/pp_ny_taxi_dashboard/logs:/opt/logs
-#
-#  spark-worker:
-#    image: apache/spark:3.5.0
-#    container_name: spark_worker_1
-#    command: >
-#      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
-#        spark://spark-master:7077
-#        --cores 1
-#        --memory 1g
-#    depends_on:
-#      - spark-master
-#    networks:
-#      - spark-net
-#    volumes:
-#      - /home/jay/pp_ny_taxi_dashboard/data:/opt/spark/data
-#      - /home/jay/pp_ny_taxi_dashboard/spark/jobs:/opt/spark/jobs
-#      - /home/jay/pp_ny_taxi_dashboard/logs:/opt/logs
+  spark-master:
+    image: apache/spark:3.5.8
+    container_name: spark-master
+    command: >
+      bash -c "/opt/spark/bin/spark-class org.apache.spark.deploy.master.Master"
+    ports:
+      - "8080:8080"   # Spark UI
+      - "7077:7077"   # Spark master port
+    networks:
+      - spark-net
+    volumes:
+      - /home/jay/pp_ny_taxi_dashboard/data:/opt/spark/data
+      - /home/jay/pp_ny_taxi_dashboard/spark/jobs:/opt/spark/jobs
+      - /home/jay/pp_ny_taxi_dashboard/logs:/opt/logs
 
-  api:
+  spark-worker:
+    image: apache/spark:3.5.8
+    container_name: spark-worker-1
+    command: >
+      /opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker
+        spark://spark-master:7077
+        --cores 1
+        --memory 1g
+    depends_on:
+      - spark-master
+    networks:
+      - spark-net
+    volumes:
+      - /home/jay/pp_ny_taxi_dashboard/data:/opt/spark/data
+      - /home/jay/pp_ny_taxi_dashboard/logs:/opt/logs
+      - /home/jay/pp_ny_taxi_dashboard/spark/jobs:/opt/spark/jobs
+
+  restapi:
     build: ./restapi
     container_name: fastapi
     ports:
@@ -41,22 +41,23 @@ services:
     volumes:
       - /home/jay/pp_ny_taxi_dashboard/data/:/fastapi/data/
       - /home/jay/pp_ny_taxi_dashboard/logs/:/fastapi/logs/
-#    depends_on:
-#      - spark-master
+      - /home/jay/pp_ny_taxi_dashboard/spark/jobs:/opt/spark/jobs
+    depends_on:
+      - spark-master
     networks:
       - spark-net
 
   ui_service:
     build: ./app
-    container_name: streamlit_ui
+    container_name: streamlit-ui
     volumes:
       - /home/jay/pp_ny_taxi_dashboard/data/:/taxi_dash_dir/data/
       - /home/jay/pp_ny_taxi_dashboard/logs/:/taxi_dash_dir/logs/
     env_file: app/.env.example
     ports:
       - "8501:8501"
-#    depends_on:
-#      - spark-master
+    depends_on:
+      - spark-master
     networks:
       - spark-net
 
