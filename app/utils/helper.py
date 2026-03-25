@@ -1,7 +1,7 @@
 import os
 import pyarrow.parquet as pq
 
-from nytaxi_logger import get_logger
+from .nytaxi_logger import get_logger
 
 logger = get_logger(__name__)
 

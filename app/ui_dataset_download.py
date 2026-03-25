@@ -1,8 +1,8 @@
 import streamlit as st
 import os
 
-from helper import get_parquet_metadata, logger
-from request_handler import extract_parquet_data_links, get_downloaded_files, download_parquet
+from utils.helper import get_parquet_metadata, logger
+from utils.request_handler import extract_parquet_data_links, get_downloaded_files, download_parquet
 
 st.set_page_config(page_title="Download Dataset", page_icon=":material/database:")
 

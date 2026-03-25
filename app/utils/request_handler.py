@@ -7,17 +7,21 @@ import json
 from datetime import date, datetime
 from collections import defaultdict
 
-from nytaxi_logger import get_logger
+from .nytaxi_logger import get_logger
 
 logger = get_logger(__name__)
 
-# Get the absolute path of the current file
-current_file = Path(__file__).resolve().parent
 # to store data, metadata
-DATA_DIR_ = Path.joinpath(current_file, "data")
+DATA_DIR_ = Path(os.getenv("DATA_DIR_PATH"))
+
+DATA_DIR_.mkdir(parents=True, exist_ok=True) # create path if not exist
+
+file_list_as_strings = [str(p) for p in DATA_DIR_.iterdir() if p.is_file()]
+
+logger.info(f"DATA_DIR_ [{DATA_DIR_.absolute()}] \t {file_list_as_strings}")
 
 # This file has all links of parquest file data
-LINKS_JSON_FILE = Path.joinpath(DATA_DIR_, "all_links.json")
+LINKS_JSON_FILE = DATA_DIR_.joinpath("all_links.json")
 
 NY_TAXI_ENDPOINT =  "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page"
 def get_all_parquet_files() -> list:

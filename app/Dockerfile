@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD streamlit run main_page_ui.py
+CMD streamlit run ui_home_page.py
