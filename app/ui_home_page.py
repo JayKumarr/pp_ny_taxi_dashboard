@@ -3,6 +3,8 @@ import streamlit as st
 # Page config
 st.set_page_config(page_title="Home", layout="wide")
 
+st.write("Hello, **world!** :sunglasses: ")
+
 
 dd_page_ = st.Page("ui_dataset_download.py", title="Datasets", icon=":material/database:")
 
