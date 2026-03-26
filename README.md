@@ -25,6 +25,7 @@ For this portfolio project, we use:
 
 - **Docker Compose:** Reproducible local environment with one service for the Streamlit app and one for the ETL runner, sharing the same mounted data volume. Compose is meant for defining and running multi-container applications and lets teammates start the stack with a single command.
 
+<img src="images/web_screenshot.jpg">
 
 [//]: # (### Best local Iceberg setup for this portfolio)
 
