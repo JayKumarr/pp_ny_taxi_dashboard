@@ -10,7 +10,7 @@ DOCKER ENVIRONMENT
 <img src="https://estuary.dev/static/0601076aec5cf18dee9c4d0b9f890acf/ebeae/Image_1_79bf0b6705.png" width="120"> 
 <img src="https://iceberg.apache.org/assets/images/Iceberg-logo.svg" width="120">
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/250px-Apache_Spark_logo.svg.png" width="90">
-
+<img src="https://www.flexera.com/blog/wp-content/uploads/chaosgenius/images/2024/10/streamlit-in-snowflake-1.png" width="90">
 For this portfolio project, we use:
 
 - **Parquet:** raw and staged storage
